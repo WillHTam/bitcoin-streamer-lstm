@@ -59,7 +59,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <GitHubForkRibbon href="https://www.github.com/willhtam"
+        <GitHubForkRibbon href="https://github.com/WillHTam/bitcoin-streamer-lstm"
           target="_blank"
           position="right"
           color="orange"
