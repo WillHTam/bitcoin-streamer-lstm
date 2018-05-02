@@ -23,8 +23,8 @@ app.use( function(req,res,next) {
     next()
 })
 
-app.use('/post', mainController.update)
-app.use('/get', mainController.pass)
+app.use('/update', mainController.update)
+app.use('/pass', mainController.pass)
 app.use('/', express.static(path.join(__dirname, './client/build')))
 
 app.listen(port, () => {
