@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './App.css'
-import axios from 'axios'
 import moment from 'moment'
 
 import GitHubForkRibbon from 'react-github-fork-ribbon'
@@ -9,6 +8,7 @@ import { withScreenSize } from '@vx/responsive'
 
 import Chart from './components/chart'
 import formatPrice from './components/formatPrice'
+import InfoBox from './components/infoBox'
 
 function Background({ width, height }) {
   return <svg width={width} height={height}>
@@ -25,7 +25,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: {}
+      data: {},
+      results: {}
     }
   }
   
@@ -37,14 +38,23 @@ class App extends Component {
           data: json
         })
       })
+
+    fetch('http://localhost:3000/get')
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          results: json
+        })
+      })
   }
   
   render() {
     const screenWidth = window.innerWidth
     const screenHeight = window.innerHeight
-    const { data } = this.state
+    const { data, results } = this.state
 
     if (!data.bpi) return <div className="main"><h2>Loading...</h2></div>
+    
     const prices = Object.keys(data.bpi).map(k => {
       return {
         time: k,
@@ -64,7 +74,7 @@ class App extends Component {
           position="right"
           color="orange"
           >
-          Fork me on GitHub!
+          Pull Request Me on GitHub!
         </GitHubForkRibbon>
 
         <Background width={screenWidth} height={screenHeight} />
@@ -94,7 +104,9 @@ class App extends Component {
               <Chart data={prices} />
             </div>
           </div>
-          <h1>Hellou</h1>
+
+          <InfoBox results = {results} />
+
         </div>
       </div>
     )
