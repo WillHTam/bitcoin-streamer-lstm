@@ -21,4 +21,6 @@ mdata = bdata[['Date']+['Close']+['Volume']+['Close Off High']+['Volatility']]
 mdata = mdata.sort_values(by='Date')
 
 if __name__ == '__main__':
-    requests.post('http://localhost:3000/post', data={'text': 'i was sent'})
+    requests.post('http://localhost:3000/update', data={'text': 'i was sent'})
+else:
+    print('You are importing predictor.py \n')

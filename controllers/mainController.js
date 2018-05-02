@@ -13,14 +13,10 @@ function pass(req, res, next) {
     if ( datum == '' ) {
         return res.status(200).json({ message: 'SERVER DOWN' })
     } else {
-        return res.status(200).json({ message: datum })
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ a: 1, b: 2, c: 3 }));
     }
 }
-
-// function test(req, res, next) {
-//     res.setHeader('Content-Type', 'application/json');
-//     res.send(JSON.stringify({ a: 1, b: 2, c: 3 }));
-// }
 
 module.exports = {
     update,

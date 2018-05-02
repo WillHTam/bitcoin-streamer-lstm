@@ -39,7 +39,7 @@ class App extends Component {
         })
       })
 
-    fetch('http://localhost:3000/get')
+    fetch('http://localhost:3000/pass')
       .then(res => res.json())
       .then(json => {
         this.setState({
