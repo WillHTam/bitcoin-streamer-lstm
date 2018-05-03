@@ -2,6 +2,8 @@
 
 - install dependencies with `yarn`
 
+- any changes to the frontend must be accompanied by `yarn build` in the 'client' folder
+
 - run with `node server.js`
 
 - view frontend on `http://localhost:3000`

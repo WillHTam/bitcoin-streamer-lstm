@@ -1,21 +1,20 @@
-var datum = {'text': ''}
+var datum = {
+    'momentum': 102.02,
+    'rf': 9681.41531,
+    'xg': 9341.043,
+    'rnnmae': 0.0873,
+    'rnn': 9292.100
+}
 
 function update(req, res, next) {
-    // const time = req.body.timeActivation
-    // const value = req.body.currentValue
-    datum.text = req.body.text
+    datum = req.body.data
 
-    // console.log(value)
     return res.status(200).json({ message: 'goud' })
 }
 
 function pass(req, res, next) {
-    if ( datum == '' ) {
-        return res.status(200).json({ message: 'SERVER DOWN' })
-    } else {
-        res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify({ a: 1, b: 2, c: 3 }));
-    }
+        res.setHeader('Content-Type', 'application/json')
+        res.send(JSON.stringify(datum))
 }
 
 module.exports = {

@@ -53,7 +53,7 @@ class App extends Component {
     const screenHeight = window.innerHeight
     const { data, results } = this.state
 
-    if (!data.bpi) return <div className="main"><h2>Loading...</h2></div>
+    if (!data.bpi) return <div className="main"><h2>Loading...!</h2></div>
     
     const prices = Object.keys(data.bpi).map(k => {
       return {
@@ -74,7 +74,7 @@ class App extends Component {
           position="right"
           color="orange"
           >
-          Pull Request Me on GitHub!
+          Fork Me on GitHub!
         </GitHubForkRibbon>
 
         <Background width={screenWidth} height={screenHeight} />

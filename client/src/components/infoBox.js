@@ -12,14 +12,18 @@ class InfoBox extends Component {
         return (
             <div className='info'>
                 <div className='infoBox'>
-                    <h2>Hellou</h2>
+                    <div>Random Forest</div>
+                    <div>{results.momentum}</div>
+                    <div>Predicted: {results.rf}</div>
                 </div>
                 <div className='infoBox'>
-                    <h2>Placeholder</h2>
-                    <p>yeah</p>
+                    <div>XGBoost</div>
+                    <div>Predicted: {results.xg}</div>
                 </div>
                 <div className='infoBox'>
-                    <h2>Miaou</h2>
+                    <div>LSTM</div>
+                    <div>Predicted: {results.rnn}</div>
+                    <div>Current MAE: {results.rnnmae}</div>
                 </div>
             </div>
         );

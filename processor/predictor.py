@@ -34,7 +34,7 @@ bdata['Volume'] = bdata['Volume'].astype('int64')
 bdata['LagFive'] = bdata['Close'].shift(5)
 bdata['ForwardFive'] = bdata['Close'].shift(-5)
 
-master['momentum'] = abs(( bdata.iloc[0]['Close'] - bdata.iloc[0]['ForwardFive'] ) * 100)
+master['momentum'] = ( bdata.iloc[0]['Close'] / bdata.iloc[0]['ForwardFive'] ) * 100
 
 def ExpMovingAverage(values, window):
     weights = np.exp(np.linspace(-1., 0., window))
@@ -73,12 +73,12 @@ rfreg = RandomForestRegressor(n_estimators=1000, max_features=5, oob_score=True,
 X_train, X_test, Y_train, Y_test = train_test_split(X,Y, random_state = 122)
 rfreg.fit(X_train, Y_train)
 
-master['rf'] = rfreg.predict( X.iloc[-1].values.reshape(1, -1) )
+master['rf'] = rfreg.predict( X.iloc[-1].values.reshape(1, -1) )[0]
 
 # XGBoost
 xgb_model = xgb.XGBRegressor().fit(np.array(X), np.array(Y))
 
-master['xg'] = xgb_model.predict( X.iloc[-1].values.reshape(1, -1) )
+master['xg'] = xgb_model.predict( X.iloc[-1].values.reshape(1, -1) )[0]
 
 # RNN
 mdata = bdata[['Date']+['Close']+['Volume']+['Close Off High']+['Volatility']]
@@ -128,5 +128,5 @@ master['rnnmae'] = np.mean(np.abs((np.transpose(btc_model.predict(LSTM_test_inpu
 master['rnn'] =  ((np.transpose(btc_model.predict(LSTM_test_inputs))+1) * test_set['Close'].values[:-window_len])[0][-1]
 
 if __name__ == '__main__':
-    print(master)
-    # requests.post('http://localhost:3000/update', data=master)
+    # print(master)
+    requests.post('http://localhost:3000/update', data=master)
