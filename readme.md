@@ -15,3 +15,8 @@
 - need to `sudo chmod 777 processsor` to disable read-only on notebooks
 
 - `gcloud compute ssh <INSTANCE NAME>`
+
+## TODO:
+- Add Firebase DB to save previous values, accuracy, etc.
+- Tune hyperparameters and features for XGBoost
+- Replace Random Forest with ARIMA
