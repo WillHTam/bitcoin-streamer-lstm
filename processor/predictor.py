@@ -26,6 +26,10 @@ from keras.layers import Dropout
 
 master = {}
 
+now = datetime.datetime.now()
+
+master['last'] = now.strftime('%m %d %Y %H:%M %p')
+
 bdata = pd.read_html("https://coinmarketcap.com/currencies/bitcoin/historical-data/?start=20150101&end="+time.strftime("%Y%m%d"))[0]
 
 bdata = bdata.assign(Date=pd.to_datetime(bdata['Date']))
