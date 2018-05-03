@@ -82,12 +82,8 @@ class App extends Component {
           <div className="chart">
             <div className="titleBar">
               <div className="title">
-                <div>BTC Price</div>
-                <div className="thirtee">
-                  <small>Last 30 Days</small>
-                </div>
+                <div> BTC Price <span className="thirtee">(Last 30 Days)</span></div>
               </div>
-              <div className="spacer" />
               <div className="prices">
                 <div>
                   {formatPrice(currentPrice)}
@@ -98,7 +94,6 @@ class App extends Component {
                   </small>
                 </div>
               </div>
-              <div />
             </div>
             <div className="container">
               <Chart data={prices} />
