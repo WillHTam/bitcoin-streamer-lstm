@@ -18,6 +18,6 @@
 
 ## TODO:
 - Add Firebase DB to save previous values, accuracy, etc.
-- Tune hyperparameters and features for XGBoos
+- Tune hyperparameters and features for XGBoost
 - Implement DMatrix for XGBoost and model saving for Keras
 - Replace Random Forest with ARIMA
