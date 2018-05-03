@@ -1,5 +1,7 @@
 # Yeet
 
+![Stack](https://raw.githubusercontent.com/WillHTam/bitcoin-streamer-lstm/master/stack.jpg)
+
 - install dependencies with `yarn`
 
 - any changes to the frontend must be accompanied by `yarn build` in the 'client' folder
