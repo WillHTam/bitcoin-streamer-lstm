@@ -1,4 +1,0 @@
-#!/bin/bash
-
-
-python3 /home/ubuntu/bitcoin-streamer-lstm/processor/predictor.py
