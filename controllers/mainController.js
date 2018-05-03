@@ -8,7 +8,9 @@ var datum = {
 }
 
 function update(req, res, next) {
-    datum = req.body.data
+    datum = req.body 
+
+    console.log(datum)
 
     return res.status(200).json({ message: 'goud' })
 }
