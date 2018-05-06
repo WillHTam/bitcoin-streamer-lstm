@@ -1,7 +1,6 @@
-# Yeet
-
 ![Stack](https://raw.githubusercontent.com/WillHTam/bitcoin-streamer-lstm/master/stack.jpg)
 
+## How to run
 - install dependencies with `yarn`
 
 - any changes to the frontend must be accompanied by `yarn build` in the 'client' folder
@@ -19,5 +18,11 @@
 ## TODO:
 - Add Firebase DB to save previous values, accuracy, etc.
 - Tune hyperparameters and features for XGBoost
-- Implement DMatrix for XGBoost and model saving for Keras
-- Replace Random Forest with ARIMA
+- Implement Pickling for SKLearn, DMatrix for XGBoost, and model saving for Keras
+- Replace Random Forest with ARIMA?
+
+## Production:
+- Host Processor on different server
+- Run weight processing with Go / Java
+- Use HTTPS 
+- Use PGP
